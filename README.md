@@ -1,8 +1,8 @@
 # YanyingRubyextension
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yanying_rubyextension`. To experiment with that code, run `bin/console` for an interactive prompt.
+Just extend Ruby standard libs and Rails gems
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -12,17 +12,23 @@ Add this line to your application's Gemfile:
 gem 'yanying_rubyextension'
 ```
 
-And then execute:
+add this line to your project:
+~~~ruby
+extend yanying_rubyextension
+~~~
 
-    $ bundle
 
-Or install it yourself as:
-
-    $ gem install yanying_rubyextension
 
 ## Usage
 
-TODO: Write usage instructions here
+~~~ruby
+active_admin#model:
+ActiveAdmin.register City do
+  permit_params model.column_names  # instead of listing all the column names with hand
+  actions :all, except: [ :destroy ]
+end
+~~~
+
 
 ## Development
 
