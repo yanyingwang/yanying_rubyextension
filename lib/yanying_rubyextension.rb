@@ -16,3 +16,12 @@ module YanyingRubyextension
     end
   end
 end
+
+class ActiveRecord::Base
+  def apimsg_add(msg)
+    errors.add(:api, message: msg)
+  end
+  def apimsg
+    errors.messages[:api].any? ? errors.messages[:api].first[:message] : false
+  end
+end
