@@ -22,21 +22,20 @@ module YanyingRubyextension
   end
 
 
-  class ActiveRecord::Base
-    def apimsg_add(msg)
-      errors.add(:api, message: msg)
-    end
-    def apimsg
-      errors.messages[:api].any? ? errors.messages[:api].first[:message] : false
-    end
-    def upperapimsg_add(msg)
-      errors.add(:upperapi, message: msg)
-    end
-    def upperapimsg
-      errors.messages[:upperapi].any? ? errors.messages[:upperapi].first[:message] : false
-    end
+class ActiveRecord::Base
+  def apimsg_add(msg)
+    errors.add(:api, message: msg)
   end
-
+  def apimsg
+    errors.messages[:api] ? errors.messages[:api].first[:message] : nil
+  end
+  def upperapimsg_add(msg)
+    errors.add(:upperapi, message: msg)
+  end
+  def upperapimsg
+    errors.messages[:upperapi] ? errors.messages[:upperapi].first[:message] : nil
+  end
+end
 
 
 
